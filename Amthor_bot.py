@@ -1,6 +1,7 @@
 import os
 import discord
 from discord.ext import commands
+from Bot_Helper import test
 
 TOKEN_PATH = "./.env"
 TOKEN_KEY = "TOKEN_BOT"
