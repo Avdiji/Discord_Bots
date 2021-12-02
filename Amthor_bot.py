@@ -1,7 +1,7 @@
 import os
 import discord
 from discord.ext import commands
-from Bot_Helper import test
+from Bot_Helper import *
 
 TOKEN_PATH = "./.env"
 TOKEN_KEY = "TOKEN_BOT"
@@ -70,5 +70,11 @@ async def unload(ctx, extension):
     bot.unload_extension(f"cogs.{extension}")
 
 
-loadAllExtensions(COGS_PATH)
-bot.run(getToken(TOKEN_PATH, TOKEN_KEY))
+# TODO DUMB THIS FUNCTION
+@bot.command()
+async def clear(ctx, amount=10):
+    await ctx.channel.purge(limit=amount)
+
+
+loadAllExtensions(COGS_PATH)  # load all extensions
+bot.run(getToken(TOKEN_PATH, TOKEN_KEY))  # run the bot
