@@ -1,7 +1,7 @@
 import discord
 import asyncio
 from discord.ext import commands
-from Bot_Helper import join_channel, leave_channel, get_yt_audio_source
+from Bot_Helper import join_channel, get_yt_audio_source
 
 RESPONSE_MISSING_KEYWORD = "Enter a Keyword or URL after the 'play - command' (!play Michael Jackson Beat it)"
 RESPONSE_NOAUDIO = "There is no Audio being played!"
