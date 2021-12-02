@@ -23,13 +23,11 @@ class Bot_Youtube(commands.Cog):
     #       self
     #       bot - the discord bot, that is connected to the server
     #       queueList - list with all the keywords, that will be / have been played
-    #       currentIndex - Index of the keyword that is currently being played
     #       active_playlist - boolean to determine, whether the queue has come to and end
     # ----------------------------------------------------------------------------------------------------
     def __init__(self, bot):
         self.bot = bot
         self.queueList = []
-        self.currentIndex = 0
         self.active_playlist = False
 
     # ----------------------------------------------------------------------------------------------------
@@ -42,7 +40,6 @@ class Bot_Youtube(commands.Cog):
     def stop_current_playlist(self):
         self.active_playlist = False
         self.queueList.clear()
-        self.currentIndex = 0
 
     # ----------------------------------------------------------------------------------------------------
     # parameters:
@@ -79,7 +76,7 @@ class Bot_Youtube(commands.Cog):
             else:
                 self.active_playlist = True
                 source = await get_yt_audio_source(keyword)
-                self.play_queue(ctx, source, self.currentIndex)
+                self.play_queue(ctx, source, 0)
 
     # ----------------------------------------------------------------------------------------------------
     # parameters:
